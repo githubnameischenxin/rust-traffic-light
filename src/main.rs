@@ -10,7 +10,7 @@ trait Duration {
 
 impl Duration for TrafficLight {
     fn time(&self) -> &u32 {
-        match self {
+        match &self {
             TrafficLight::Red(num) => num,
             TrafficLight::Green(num) => num,
             TrafficLight::Yellow(num) => num,
@@ -50,7 +50,7 @@ struct Square {
 
 impl Shape for Circle {
     fn area(&self) -> f64 {
-        self.radius * self.radius * std::f64::consts::PI
+        &self.radius * &self.radius * std::f64::consts::PI
     }
     fn name(&self) -> &str {
         "圆"
@@ -59,7 +59,7 @@ impl Shape for Circle {
 
 impl Shape for Triangle {
     fn area(&self) -> f64 {
-        self.base * self.height / 2f64
+        &self.base * &self.height / 2f64
     }
     fn name(&self) -> &str {
         "三角形"
@@ -68,7 +68,7 @@ impl Shape for Triangle {
 
 impl Shape for Square {
     fn area(&self) -> f64 {
-        self.side_length * self.side_length
+        &self.side_length * &self.side_length
     }
     fn name(&self) -> &str {
         "正方形"
